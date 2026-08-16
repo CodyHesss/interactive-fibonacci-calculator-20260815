@@ -1,12 +1,15 @@
 import sys
 
+memo = {}
+
 def fibonacci(n):
     if n <= 0:
         return 0
     elif n == 1:
         return 1
-    else:
-        return fibonacci(n-1) + fibonacci(n-2)
+    if n not in memo:
+        memo[n] = fibonacci(n-1) + fibonacci(n-2)
+    return memo[n]
 
 if __name__ == '__main__':
     if len(sys.argv) != 2:

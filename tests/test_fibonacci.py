@@ -10,6 +10,8 @@ class TestFibonacci(unittest.TestCase):
         self.assertEqual(fibonacci(4), 3)
         self.assertEqual(fibonacci(5), 5)
         self.assertEqual(fibonacci(10), 55)
+        self.assertEqual(fibonacci(20), 6765)
+        self.assertEqual(fibonacci(30), 832040)
 
 if __name__ == '__main__':
     unittest.main()
