@@ -14,14 +14,14 @@ class TestFibonacci(unittest.TestCase):
         self.assertEqual(fibonacci(30), 832040)
 
     def test_negative_input(self):
-        with self.assertRaises(SystemExit) as cm:
+        with self.assertRaises(ValueError) as cm:
             fibonacci(-1)
-        self.assertEqual(cm.exception.code, 1)
+        self.assertEqual(str(cm.exception), 'Input must be a non-negative integer')
 
     def test_non_integer_input(self):
-        with self.assertRaises(SystemExit) as cm:
+        with self.assertRaises(ValueError) as cm:
             fibonacci('a')
-        self.assertEqual(cm.exception.code, 1)
+        self.assertEqual(str(cm.exception), 'Input must be a non-negative integer')
 
 if __name__ == '__main__':
     unittest.main()

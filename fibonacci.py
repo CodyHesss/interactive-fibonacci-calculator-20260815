@@ -4,7 +4,7 @@ memo = {}
 
 def fibonacci(n):
     if not isinstance(n, int) or isinstance(n, bool) or n < 0:
-        raise SystemExit(1)
+        raise ValueError('Input must be a non-negative integer')
     if n == 0:
         return 0
     elif n == 1:
@@ -20,10 +20,7 @@ if __name__ == '__main__':
 
     try:
         number = int(sys.argv[1])
-        if number < 0:
-            print('Please enter a non-negative integer.')
-            sys.exit(1)
         print(fibonacci(number))
-    except ValueError:
-        print('Please enter a valid integer.')
+    except ValueError as e:
+        print(e)
         sys.exit(1)
