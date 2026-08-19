@@ -3,7 +3,7 @@ import sys
 memo = {}
 
 def fibonacci(n):
-    if not isinstance(n, int) or isinstance(n, bool) or n < 0:
+    if not isinstance(n, int) or n < 0:
         raise ValueError('Input must be a non-negative integer')
     if n == 0:
         return 0
