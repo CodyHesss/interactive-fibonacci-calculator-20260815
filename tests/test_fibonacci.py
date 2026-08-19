@@ -23,5 +23,9 @@ class TestFibonacci(unittest.TestCase):
             fibonacci('a')
         self.assertEqual(str(cm.exception), 'Input must be a non-negative integer')
 
+    def test_large_input(self):
+        self.assertEqual(fibonacci(50), 12586269025)
+        self.assertEqual(fibonacci(100), 354224848179261915075)
+
 if __name__ == '__main__':
     unittest.main()
