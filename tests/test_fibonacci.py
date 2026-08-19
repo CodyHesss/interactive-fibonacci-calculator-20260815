@@ -1,5 +1,5 @@
 import unittest
-from fibonacci import fibonacci
+from fibonacci import fibonacci, memo
 
 class TestFibonacci(unittest.TestCase):
     def test_fibonacci(self):
@@ -26,6 +26,10 @@ class TestFibonacci(unittest.TestCase):
     def test_large_input(self):
         self.assertEqual(fibonacci(50), 12586269025)
         self.assertEqual(fibonacci(100), 354224848179261915075)
+
+    def test_memoization(self):
+        self.assertEqual(fibonacci(100), fibonacci(100))
+        self.assertIn(100, memo)
 
 if __name__ == '__main__':
     unittest.main()
