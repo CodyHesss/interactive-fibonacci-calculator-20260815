@@ -31,5 +31,12 @@ class TestFibonacci(unittest.TestCase):
         self.assertEqual(fibonacci(100), fibonacci(100))
         self.assertIn(100, memo)
 
+    def test_memoization_performance(self):
+        import time
+        start_time = time.time()
+        fibonacci(100)
+        end_time = time.time()
+        self.assertLess(end_time - start_time, 0.1)
+
 if __name__ == '__main__':
     unittest.main()
