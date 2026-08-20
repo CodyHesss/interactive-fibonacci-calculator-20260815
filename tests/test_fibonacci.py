@@ -56,5 +56,12 @@ class TestFibonacci(unittest.TestCase):
         fibonacci(0)
         self.assertNotIn(1000, memo)
 
+    def test_memoization_optimization_clear_cache_large_input(self):
+        fibonacci(1000)
+        self.assertIn(1000, memo)
+        fibonacci(0)
+        self.assertNotIn(1000, memo)
+        self.assertEqual(len(memo), 2)
+
 if __name__ == '__main__':
     unittest.main()
