@@ -5,8 +5,13 @@ memo = {0: 0, 1: 1}
 def fibonacci(n):
     if not isinstance(n, int) or n < 0:
         raise ValueError('Input must be a non-negative integer')
+    if n == 0:
+        memo.clear()
+        memo.update({0: 0, 1: 1})
+        return 0
     if n not in memo:
-        memo[n] = fibonacci(n-1) + fibonacci(n-2)
+        for index in range(max(memo) + 1, n + 1):
+            memo[index] = memo[index - 1] + memo[index - 2]
     return memo[n]
 
 if __name__ == '__main__':

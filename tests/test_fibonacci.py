@@ -50,5 +50,11 @@ class TestFibonacci(unittest.TestCase):
         end_time = time.time()
         self.assertLess(end_time - start_time, 1)
 
+    def test_memoization_optimization_clear_cache(self):
+        fibonacci(1000)
+        self.assertIn(1000, memo)
+        fibonacci(0)
+        self.assertNotIn(1000, memo)
+
 if __name__ == '__main__':
     unittest.main()
